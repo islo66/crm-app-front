@@ -1,6 +1,6 @@
-import { useNavigate } from "react-router-dom";
-import { Form, Input, Button, Card } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
+import { Form, Input, Button, Card } from "antd";
+import { useNavigate } from "react-router-dom";
 
 type LoginFormValues = {
   username: string;

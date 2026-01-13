@@ -1,8 +1,9 @@
-import { Routes, Route } from "react-router-dom";
 import { ConfigProvider, theme } from "antd";
-import LoginForm from "./features/LoginForm";
-import Dashboard from "./features/Dashboard";
+import { Routes, Route } from "react-router-dom";
+
 import ProtectedRoute from "./components/ProtectedRoute";
+import Dashboard from "./features/Dashboard";
+import LoginForm from "./features/LoginForm";
 
 function App() {
   return (
