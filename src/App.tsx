@@ -4,9 +4,9 @@ import enUs from "antd/locale/en_US";
 import { ThemeProvider } from "antd-style";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
+import { SessionGuard, DefaultLayout, DashboardLayout } from "src/layouts";
 import { GlobalStyleUtils } from "src/styles";
 
-import ProtectedRoute from "./components/ProtectedRoute";
 import Dashboard from "./features/Dashboard";
 import LoginForm from "./features/LoginForm";
 
@@ -40,15 +40,14 @@ function App() {
             <ThemeProvider>
               <GlobalStyleUtils />
               <Routes>
-                <Route path="/" element={<LoginForm />} />
-                <Route
-                  path="/dashboard"
-                  element={
-                    <ProtectedRoute>
-                      <Dashboard />
-                    </ProtectedRoute>
-                  }
-                />
+                <Route element={<SessionGuard />}>
+                  <Route element={<DefaultLayout />}>
+                    <Route path="/" element={<LoginForm />} />
+                  </Route>
+                  <Route element={<DashboardLayout />}>
+                    <Route path="/dashboard" element={<Dashboard />} />
+                  </Route>
+                </Route>
               </Routes>
             </ThemeProvider>
           </ConfigProvider>
