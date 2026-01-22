@@ -9,5 +9,15 @@ export const useStyles = createStyles(({ css, token }) => {
       min-height: 100vh;
       background: ${token.colorBgContainer};
     `,
+    containerBox: css`
+      max-width: 1280px;
+      min-width: 300px;
+      width: 100%;
+      display: flex;
+      height: calc(100vh - 64px);
+    `,
+    menu: css`
+      height: 100%;
+    `,
   };
 });

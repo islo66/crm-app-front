@@ -4,10 +4,10 @@ import enUs from "antd/locale/en_US";
 import { ThemeProvider } from "antd-style";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
+import { Leads } from "src/features";
 import { SessionGuard, DefaultLayout, DashboardLayout } from "src/layouts";
 import { GlobalStyleUtils } from "src/styles";
 
-import Dashboard from "./features/Dashboard";
 import LoginForm from "./features/LoginForm";
 
 function App() {
@@ -45,7 +45,7 @@ function App() {
                     <Route path="/" element={<LoginForm />} />
                   </Route>
                   <Route element={<DashboardLayout />}>
-                    <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/leads" element={<Leads />} />
                   </Route>
                 </Route>
               </Routes>

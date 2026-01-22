@@ -42,16 +42,16 @@ export function SessionGuard() {
   const pathname = location.pathname;
 
   const isAuthPage = pathname === "/";
-  const isPrivatePage = pathname.startsWith("/dashboard");
+  const isPrivatePage = pathname.startsWith("/leads");
 
   // 1) Not logged in and goes to a private page -> login
   if (!accessToken && isPrivatePage) {
     return <Navigate to="/" replace />;
   }
 
-  // 2) Already logged in and going to login -> dashboard
+  // 2) Already logged in and going to login -> leads
   if (accessToken && isAuthPage) {
-    return <Navigate to="/dashboard" replace />;
+    return <Navigate to="/leads" replace />;
   }
 
   // 3) In all other cases, we simply render nested routes/layouts
